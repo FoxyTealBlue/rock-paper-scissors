@@ -40,16 +40,69 @@ function getPlayerChoice() {
   }
 }
 
-function playerScore(point) {
-  let playerScore = playerScore + point;
-  return playerScore;
+function updatePlayerScore(playerScore) {
+  return ++playerScore;
 }
 
-function computerScore(point) {
-  let computerScore = computerScore + point;
-  return computerScore;
+function updateComputerScore(computerScore) {
+  return ++computerScore;
 }
 
-console.log(getComputerChoice(getRandomNumber(3)));
+function decideWinner(playerDecision, computerDecision) {
+  if (playerDecision === "Rock") {
+    if (computerDecision === "Rock") {
+      return "Tie";
+    } else if (computerDecision === "Paper") {
+      return "Computer";
+    } else if (computerDecision === "Scissors") {
+      return "Player";
+    }
+  } else if (playerDecision === "Paper") {
+    if (computerDecision === "Rock") {
+      return "Player";
+    } else if (computerDecision === "Paper") {
+      return "Tie";
+    } else if (computerDecision === "Scissors") {
+      return "Computer";
+    }
+  } else if (playerDecision === "Scissors") {
+    if (computerDecision === "Rock") {
+      return "Computer";
+    } else if (computerDecision === "Paper") {
+      return "Player";
+    } else if (computerDecision === "Scissors") {
+      return "Tie";
+    }
+  }
+}
 
-console.log(`Player choice is ${getPlayerChoice()}`);
+function assignPoint(winner) {
+  switch (winner) {
+    case "Player":
+      return updatePlayerScore(playerScore);
+    case "Computer":
+      return updateComputerScore(computerScore);
+    case "Tie":
+      break;
+  }
+}
+
+function playGame() {
+  let playerScore = 0;
+  let computerScore = 0;
+  let rounds = 0;
+  while (rounds < 5) {
+    let playerSelection = getPlayerChoice();
+    let computerSelection = getComputerChoice(getRandomNumber(3));
+    console.log(`${playerSelection} vs ${computerSelection}`);
+    let winner = decideWinner(playerSelection, computerSelection);
+    console.log(winner);
+    if (winner === "Player") {
+      playerScore = updatePlayerScore(playerScore);
+    } else if (winner === "Computer") {
+      computerScore = updateComputerScore(computerScore);
+    }
+    rounds++;
+  }
+  console.log(playerScore, computerScore);
+}
