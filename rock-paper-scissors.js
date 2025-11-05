@@ -1,3 +1,8 @@
+const startButton = document.body.querySelector("#startGame");
+const winnerDisplay = document.body.querySelector("#winnerDisplay");
+
+startButton.addEventListener("click", () => playGame());
+
 function getRandomNumber(parameter) {
   return Math.floor(Math.random() * parameter);
 }
@@ -20,7 +25,7 @@ function getPlayerChoice() {
     let choice = prompt(
       "Please choose Rock, Paper, or Scissors",
     )?.toLowerCase();
-    console.log(choice);
+    // console.log(choice);
     switch (choice) {
       case "rock":
         isValidInput = true;
@@ -33,7 +38,7 @@ function getPlayerChoice() {
         return "Scissors";
       case undefined:
         isValidInput = true;
-        break;
+        return null;
       default:
         alert("Incorrect response.  Please try again.");
     }
@@ -87,16 +92,37 @@ function assignPoint(winner) {
   }
 }
 
+function getWinner(playerScore, computerScore) {
+  if (playerScore === computerScore) return "Tie";
+  return playerScore > computerScore ? "Player" : "Computer";
+}
+
+function displayWinner(winner) {
+  switch (winner) {
+    case "Player":
+      winnerDisplay.innerHTML = "The player won.";
+      break;
+    case "Computer":
+      winnerDisplay.innerHTML = "The computer won.";
+      break;
+    case "Tie":
+      winnerDisplay.innerHTML = "Neither, it was a tie.";
+      break;
+  }
+}
+
 function playGame() {
+  winnerDisplay.innerHTML = "";
   let playerScore = 0;
   let computerScore = 0;
   let rounds = 0;
   while (rounds < 5) {
     let playerSelection = getPlayerChoice();
+    if (playerSelection === null) break;
     let computerSelection = getComputerChoice(getRandomNumber(3));
-    console.log(`${playerSelection} vs ${computerSelection}`);
+    // console.log(`${playerSelection} vs ${computerSelection}`);
     let winner = decideWinner(playerSelection, computerSelection);
-    console.log(winner);
+    // console.log(winner);
     if (winner === "Player") {
       playerScore = updatePlayerScore(playerScore);
     } else if (winner === "Computer") {
@@ -104,5 +130,8 @@ function playGame() {
     }
     rounds++;
   }
-  console.log(playerScore, computerScore);
+  displayWinner(getWinner(playerScore, computerScore));
+  console.log(
+    `The final score was Player: ${playerScore} to Computer: ${computerScore}`,
+  );
 }
