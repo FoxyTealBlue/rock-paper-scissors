@@ -1,5 +1,6 @@
 const startButton = document.body.querySelector("#startGame");
 const winnerDisplay = document.body.querySelector("#winnerDisplay");
+const showScore = document.body.querySelector("#showScore");
 
 startButton.addEventListener("click", () => playGame());
 
@@ -113,6 +114,8 @@ function displayWinner(winner) {
 
 function playGame() {
   winnerDisplay.innerHTML = "";
+  showScore.innerHTML = "";
+
   let playerScore = 0;
   let computerScore = 0;
   let rounds = 0;
@@ -130,8 +133,6 @@ function playGame() {
     }
     rounds++;
   }
+  showScore.innerHTML = `The final score is Player: ${playerScore} to Computer: ${computerScore}.`;
   displayWinner(getWinner(playerScore, computerScore));
-  console.log(
-    `The final score was Player: ${playerScore} to Computer: ${computerScore}`,
-  );
 }
