@@ -26,7 +26,6 @@ function getPlayerChoice() {
     let choice = prompt(
       "Please choose Rock, Paper, or Scissors",
     )?.toLowerCase();
-    // console.log(choice);
     switch (choice) {
       case "rock":
         isValidInput = true;
@@ -123,9 +122,7 @@ function playGame() {
     let playerSelection = getPlayerChoice();
     if (playerSelection === null) break;
     let computerSelection = getComputerChoice(getRandomNumber(3));
-    // console.log(`${playerSelection} vs ${computerSelection}`);
     let winner = decideWinner(playerSelection, computerSelection);
-    // console.log(winner);
     if (winner === "Player") {
       playerScore = updatePlayerScore(playerScore);
     } else if (winner === "Computer") {
