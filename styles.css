@@ -1,0 +1,29 @@
+body {
+  background-color: rebeccapurple;
+}
+
+h1 {
+  color: lavenderblush;
+  text-align: center;
+}
+
+main {
+  align-items: center;
+  margin: 4rem;
+}
+#rps-container {
+  display: flex;
+  border: black solid 2px;
+  justify-content: space-around;
+}
+
+footer {
+  align-items: center;
+  margin: 4rem;
+}
+
+#compare-container {
+  display: flex;
+  border: black solid 2px;
+  justify-content: space-around;
+}
