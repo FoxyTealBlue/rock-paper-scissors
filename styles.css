@@ -27,3 +27,33 @@ footer {
   border: black solid 2px;
   justify-content: space-around;
 }
+
+#rock {
+  background-color: transparent;
+  background-image: url(./images/the-rock.webp);
+  width: 360px;
+  height: 494px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#paper {
+  background-color: transparent;
+  background-image: url(./images/toilet-paper-man.png);
+  width: 360px;
+  height: 494px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#scissors {
+  background-color: transparent;
+  background-image: url(./images/brooding-scissors.png);
+  width: 360px;
+  height: 494px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
