@@ -1,38 +1,41 @@
 <!doctype html>
 <html lang="en">
+  <div id="pageContainer">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="rock-paper-scissors.js" defer></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
+    </style>
   </head>
   <body>
     <header>
-      <h1>Welcome to Rock, Paper, Scissors!</h1>
+      <h1 id="scoreHeader">Welcome to Rock, Paper, Scissors!</h1>
+        <div id="scoreDiv">
+          <p id="showPlayerScore"></p>
+          <p id="showAiScore"></p>
+        </div>
     </header>
     <main>
       <div id="rps-container">
-        <button id="rock" class="gameButton"></button>
-        <button id="paper" class="gameButton"></button>
-        <button id="scissors" class="gameButton"></button>
+        <button id="rock" class="gameButton"><div class="buttonText">Rock</div></button>
+        <button id="paper" class="gameButton"><div class="buttonText">Paper</div></button>
+        <button id="scissors" class="gameButton"><div class="buttonText">Scissors</div></button>
       </div>
     </main>
     <footer>
-      <div id="compare-container">
-        <div id="playerChoice"></div>
-        <div>
-          <img
-            id="vs-image"
-            src="./images/vs-letters-versus-png.png"
-            alt="Image that shows the letters V and S with a verticle line through them signifying the word versus."
-          />
-        </div>
-        <div id="aiChoice"></div>
-      </div>
       <div>
-        <h1>The Winner Is</h1>
+        <h1 id="announceWinner"></h1>
+      </div>
+      <div id="compareContainer">
+        <div id="playerChoice"></div>
+        <div id="vsFrame"></div>
+        <div id="aiChoice"></div>
       </div>
     </footer>
   </body>
 </html>
+</div>
