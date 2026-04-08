@@ -1,0 +1,176 @@
+#pageContainer {
+  width: 1500px;
+  margin: 0 auto;
+}
+body {
+  background-color: rebeccapurple;
+}
+
+header {
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+  transition-delay: 1s;
+}
+
+h1 {
+  color: lavenderblush;
+  text-align: center;
+}
+
+main {
+  align-items: center;
+  margin: 0 4rem;
+}
+#rps-container {
+  display: flex;
+  justify-content: space-around;
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+}
+
+footer {
+  align-items: center;
+  margin: 0 4rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms ease-in-out;
+  transition-delay: 2s;
+}
+
+#compareContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+#rock {
+  background-color: transparent;
+  background-image: url(./images/the-rock.webp);
+  width: 360px;
+  height: 494px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#paper {
+  background-color: transparent;
+  background-image: url(./images/toilet-paper-man.png);
+  width: 360px;
+  height: 494px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#scissors {
+  background-color: transparent;
+  background-image: url(./images/brooding-scissors.png);
+  width: 360px;
+  height: 494px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.gameButton {
+  border: none;
+}
+
+.buttonText {
+  font-size: 7rem;
+  font-family: "Old Standard TT", serif;
+  font-weight: 700;
+  font-style: normal;
+  color: deepskyblue;
+  transform: rotate(-45deg);
+  letter-spacing: 0.8rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+}
+
+.gameButton:hover .buttonText {
+  visibility: visible;
+  opacity: 1;
+}
+
+#scoreDiv {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#scoreHeader {
+  text-align: center;
+  color: lavenderblush;
+  font-size: 2.5rem;
+  margin-bottom: 0;
+  text-decoration: underline;
+}
+
+#scoreDiv p {
+  margin-top: 0;
+  color: lavenderblush;
+  font-size: 2rem;
+}
+
+#playAgainContainer {
+  align-items: center;
+  margin: 2rem 4rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms ease-in-out;
+  transition-delay: 2s;
+  color: lavenderblush;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+#playAgainButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  height: 50px;
+  width: 100px;
+  font-size: 1.5rem;
+  border-radius: 2rem;
+  margin: 1rem;
+  background-color: #d072fc;
+}
+
+#finalDiv {
+  display: none;
+  align-items: center;
+  margin: 0 4rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms ease-in-out;
+  transition-delay: 2s;
+  color: lavenderblush;
+}
+
+#finalScore {
+  display: flex;
+  color: lavenderblush;
+  font-size: 2rem;
+  justify-content: center;
+}
+
+#finalScore p {
+  margin: 0 1rem;
+}
+
+#finalHeading {
+  font-size: 3rem;
+}
+
+#finalSubHeading {
+  font-size: 2rem;
+  text-align: center;
+  text-decoration: underline;
+}
