@@ -6,6 +6,12 @@ body {
   background-color: rebeccapurple;
 }
 
+header {
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+  transition-delay: 1s;
+}
+
 h1 {
   color: lavenderblush;
   text-align: center;
@@ -13,19 +19,22 @@ h1 {
 
 main {
   align-items: center;
-  margin: 4rem;
+  margin: 0 4rem;
 }
 #rps-container {
   display: flex;
   justify-content: space-around;
+  opacity: 1;
   transition: all 300ms ease-in-out;
 }
 
 footer {
   align-items: center;
-  margin: 4rem;
+  margin: 0 4rem;
+  opacity: 0;
   visibility: hidden;
-  transition: all 1300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  transition-delay: 2s;
 }
 
 #compareContainer {
@@ -106,4 +115,62 @@ footer {
   margin-top: 0;
   color: lavenderblush;
   font-size: 2rem;
+}
+
+#playAgainContainer {
+  align-items: center;
+  margin: 2rem 4rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms ease-in-out;
+  transition-delay: 2s;
+  color: lavenderblush;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+#playAgainButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  height: 50px;
+  width: 100px;
+  font-size: 1.5rem;
+  border-radius: 2rem;
+  margin: 1rem;
+  background-color: #d072fc;
+}
+
+#finalDiv {
+  display: none;
+  align-items: center;
+  margin: 0 4rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms ease-in-out;
+  transition-delay: 2s;
+  color: lavenderblush;
+}
+
+#finalScore {
+  display: flex;
+  color: lavenderblush;
+  font-size: 2rem;
+  justify-content: center;
+}
+
+#finalScore p {
+  margin: 0 1rem;
+}
+
+#finalHeading {
+  font-size: 3rem;
+}
+
+#finalSubHeading {
+  font-size: 2rem;
+  text-align: center;
+  text-decoration: underline;
 }

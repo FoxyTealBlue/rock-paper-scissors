@@ -17,8 +17,17 @@ function runGame(event) {
   scoreKeeper(roundWinner);
   displayWinner(roundWinner);
   displayScore();
-  console.log(`Player Score: ${playerScore}`);
-  console.log(`AI Score: ${aiScore}`);
+  playAgain();
+}
+
+function runAnotherGame() {
+  const footer = document.querySelector("footer");
+  const rpsContainer = document.querySelector("#rps-container");
+
+  footer.style.visibility = "hidden";
+  footer.style.opacity = "0";
+  footer.style.transitionDelay = "300ms";
+  showRPSContainer();
 }
 
 function getAiChoice() {
@@ -130,10 +139,19 @@ function displayScore() {
   const scoreHeader = document.querySelector("#scoreHeader");
   const showPlayerScore = document.querySelector("#showPlayerScore");
   const showAiScore = document.querySelector("#showAiScore");
+  const header = document.querySelector("header");
 
-  scoreHeader.textContent = "Score";
-  showPlayerScore.textContent = `Player: ${playerScore}`;
-  showAiScore.textContent = `AI: ${aiScore}`;
+  header.style.visibility = "hidden";
+  header.style.opacity = 0;
+  header.addEventListener("transitionend", function handler() {
+    scoreHeader.textContent = "Score";
+    showPlayerScore.textContent = `Player: ${playerScore}`;
+    showAiScore.textContent = `AI: ${aiScore}`;
+    header.style.visibility = "visible";
+    header.style.opacity = 1;
+
+    header.removeEventListener("transitionend", handler);
+  });
 }
 
 function hideRPSContainer() {
@@ -142,7 +160,53 @@ function hideRPSContainer() {
   rpsContainer.style.opacity = "0";
   rpsContainer.style.visibility = "hidden";
   rpsContainer.addEventListener("transitionend", function handler() {
+    console.log("Hiding RPS Container");
     rpsContainer.style.display = "none";
     rpsContainer.removeEventListener("transitionend", handler);
   });
+}
+
+function showRPSContainer() {
+  const rpsContainer = document.querySelector("#rps-container");
+  const footer = document.querySelector("footer");
+
+  rpsContainer.style.opacity = "1";
+  rpsContainer.style.visibility = "visible";
+  footer.addEventListener("transitionend", function handler() {
+    console.log("Showing RPS Container");
+    rpsContainer.style.display = "flex";
+    footer.removeEventListener("transitionend", handler);
+  });
+}
+
+function playAgain() {
+  const yesButton = document.querySelector("#yesButton");
+  const noButton = document.querySelector("#noButton");
+  const playAgainContainer = document.querySelector("#playAgainContainer");
+
+  playAgainContainer.style.visibility = "visible";
+  playAgainContainer.style.opacity = "1";
+  yesButton.addEventListener("click", runAnotherGame);
+  noButton.addEventListener("click", endGame);
+}
+
+function endGame() {
+  const header = document.querySelector("header");
+  const main = document.querySelector("main");
+  const footer = document.querySelector("footer");
+
+  header.style.display = "none";
+  main.style.display = "none";
+  footer.style.display = "none";
+
+  const finalDiv = document.querySelector("#finalDiv");
+  const finalPlayerScore = document.querySelector("#finalPlayerScore");
+  const finalAIScore = document.querySelector("#finalAIScore");
+
+  finalPlayerScore.textContent = `Player: ${playerScore}`;
+  finalAIScore.textContent = `AI: ${aiScore}`;
+
+  finalDiv.style.display = "block";
+  finalDiv.style.visibility = "visible";
+  finalDiv.style.opacity = "1";
 }
